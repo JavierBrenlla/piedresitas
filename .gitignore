@@ -1,0 +1,5 @@
+venv
+db.sqlite3
+mysite/__pycache__
+probas/__pycache__
+probas/migrations/__pycache__
