@@ -18,20 +18,13 @@ def decode(request):
 
     elif request.method == 'POST':
         
+        p = Person(picture = request.FILES['picture']).save()
+        
         logging.basicConfig(level=logging.NOTSET) # Here
         logging.debug("---------------------------------")
         logging.info("DATOS")
-        logging.info(request.FILES['picture'])
+        logging.info(p)
         logging.info("----------------------------------")
-        
-        Person(picture = request.FILES['picture']).save()
         
         data = {"status": "OK"}
         return JsonResponse(data)
-        
-        #data = JSONParser().parse(request)
-        #serializer = PersonSerializer(data=request.data)
-        #if serializer.is_valid():
-        #    serializer.save()
-        #    return JsonResponse(serializer.data, status=201)
-        #return JsonResponse(serializer.errors, status=400)
